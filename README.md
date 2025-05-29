@@ -1,1 +1,1 @@
-A slowly work-in-progress budget tracker built on microservices using gRPC
+Slow work-in-progress budget tracker built on microservices using gRPC, for fun
