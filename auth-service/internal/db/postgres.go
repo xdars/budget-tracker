@@ -1,9 +1,9 @@
 package db
 
 import (
+	"database/sql"
 	"github.com/joho/godotenv"
 	_ "github.com/lib/pq"
-	"database/sql"
 	"log"
 	"os"
 	"time"
@@ -20,9 +20,9 @@ func SetupPostgresConn() *sql.DB {
 
 	db, err := sql.Open("postgres", connString)
 
-    db.SetMaxOpenConns(25)
-    db.SetMaxIdleConns(25)
-    db.SetConnMaxLifetime(5 * time.Minute)
+	db.SetMaxOpenConns(25)
+	db.SetMaxIdleConns(25)
+	db.SetConnMaxLifetime(5 * time.Minute)
 
 	if err != nil {
 		log.Fatal(err)
@@ -39,5 +39,3 @@ func SetupPostgresConn() *sql.DB {
 
 	return db
 }
-
-
