@@ -20,6 +20,8 @@ func SetupPostgresConn() *sql.DB {
 
 	db, err := sql.Open("postgres", connString)
 
+	// we'll go with connection pool
+	// because opening and closing a connection every time we make a query sounds quite resource-intensive
 	db.SetMaxOpenConns(25)
 	db.SetMaxIdleConns(25)
 	db.SetConnMaxLifetime(5 * time.Minute)
